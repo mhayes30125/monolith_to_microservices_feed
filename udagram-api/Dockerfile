@@ -1,6 +1,12 @@
 # Use NodeJS base image
 FROM node:13 as current_build
 
+ARG POSTGRES_USERNAME
+ARG POSTGRES_PASSWORD
+ARG POSTGRES_DATABASE
+ARG POSTGRES_HOST
+ARG JWT_SECRET
+
 # Create app directory
 WORKDIR /usr/src/app
 
