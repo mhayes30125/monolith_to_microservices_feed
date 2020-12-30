@@ -23,6 +23,6 @@ spec:
           exec:
             command:
             - cat
-            - /tmp/healthy
+            - /usr/src/app/healthy
           initialDelaySeconds: 5
           periodSeconds: 5

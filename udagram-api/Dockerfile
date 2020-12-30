@@ -18,12 +18,6 @@ COPY . .
 
 RUN npm run build
 
-FROM node:13
-
-COPY --from=current_build /usr/src/app/www /usr/src/app/www
-
-COPY --from=current_build /usr/src/app/healthy /tmp/healthy
-
 # Bind the port that the image will run on
 EXPOSE 8080
 
