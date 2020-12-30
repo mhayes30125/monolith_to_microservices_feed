@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monolith-to-microservices-feed
+  labels:
+    app: monolith-to-microservices-feed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: monolith-to-microservices-feed
+  template:
+    metadata:
+      labels:
+        app: monolith-to-microservices-feed
+    spec:
+      containers:
+      - name: monolith-to-microservices-feed
+        image: mhayes30125/monolith_to_microservices_feed
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /healthcheck
+            port: 8080
+          initialDelaySeconds: 3
+          periodSeconds: 3
