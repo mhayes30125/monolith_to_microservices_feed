@@ -11,9 +11,6 @@ import {V0_FEED_MODELS} from './controllers/v0/model.index';
 
 
 (async () => {
-  //Reads secrets from Secrets Manager and sets config file.
-  setSecrets();
-
   console.warn(`Postgres Host: ${process.env.POSTGRES_HOST}` );
   await sequelize.addModels(V0_FEED_MODELS);
   await sequelize.sync();

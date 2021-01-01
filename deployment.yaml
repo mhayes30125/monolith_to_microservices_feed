@@ -5,7 +5,7 @@ metadata:
   labels:
     app: monolith-to-microservices-feed
 spec:
-  replicas: 1
+  replicas: 0
   selector:
     matchLabels:
       app: monolith-to-microservices-feed
@@ -17,6 +17,32 @@ spec:
       containers:
       - name: monolith-to-microservices-feed
         image: mhayes30125/monolith_to_microservices_feed
+        env:
+        - name: POSTGRES_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: my-secrets
+              key: username
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: my-secrets
+              key: password 
+        - name: POSTGRES_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: my-secrets
+              key: database
+        - name: POSTGRES_HOST
+          valueFrom:
+            secretKeyRef:
+              name: my-secrets
+              key: host
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: my-secrets
+              key: jwt
         ports:
         - containerPort: 8080
         livenessProbe:
