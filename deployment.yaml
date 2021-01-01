@@ -5,7 +5,7 @@ metadata:
   labels:
     app: monolith-to-microservices-feed
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: monolith-to-microservices-feed

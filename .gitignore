@@ -42,3 +42,4 @@ venv/
 !.elasticbeanstalk/*.global.yml
 
 secret.yaml
+kustomization.yaml
