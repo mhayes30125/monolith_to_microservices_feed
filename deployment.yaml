@@ -5,7 +5,7 @@ metadata:
   labels:
     app: monolith-to-microservices-feed
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: monolith-to-microservices-feed
@@ -18,7 +18,7 @@ spec:
       - name: monolith-to-microservices-feed
         image: mhayes30125/monolith_to_microservices_feed
         ports:
-        - containerPort: 80
+        - containerPort: 8080
         livenessProbe:
           exec:
             command:
