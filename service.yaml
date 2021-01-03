@@ -3,11 +3,10 @@ kind: Service
 metadata:
   name: monolith-to-microservices-feed
   labels:
-    run: monolith-to-microservices-feed
+    app: monolith-to-microservices-feed
 spec:
   ports:
   - port: 8080
     protocol: TCP
-    targetPort: 8080
   selector:
-    run: monolith-to-microservices-feed
+    app: monolith-to-microservices-feed
